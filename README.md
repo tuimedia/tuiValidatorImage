@@ -4,7 +4,10 @@ tuiValidatorImage
 What it is
 ----------
 
-This is an extension of the standard sfValidatorFile validator that checks an uploaded image fits within a min/max width and height. It's written for symfony 1.4
+This is an extension of the standard sfValidatorFile validator that checks an uploaded image fits within a min/max width and height. It's written for symfony 1.4.
+
+This plugin is wholly unmaintained and unsupported. It was written in haste, and may not work for you. It worked for us when we needed it, and you may find it useful, but we make no guarantees. 
+
 
 How to use it
 -------------
