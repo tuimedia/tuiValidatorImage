@@ -23,32 +23,33 @@ How to use it
 		* 'square' - specifies the image must be square
 * In your form class, override the validator for the image widget. Here's an example for using max and min sizes, including the upload/edit/delete widget:
 
-		if ($this->getObject()->menu_image) {
-		  $this->setWidget('menu_image', new sfWidgetFormInputFileEditable(array(
-		    'file_src'      => '/'.basename(sfConfig::get('sf_upload_dir')).'/'.$this->getObject()->menu_image,
-		    'edit_mode'     => !$this->isNew(),
-		    'is_image'      => true,
-		    'with_delete'   => true,
-		    'delete_label'  => 'Remove this image',
-		  )));
-		  $this->setValidator('menu_image_delete', new sfValidatorBoolean());
-		} else {
-		  $this->setWidget('menu_image', new sfWidgetFormInputFile());
-		}
+```php
+if ($this->getObject()->menu_image) {
+  $this->setWidget('menu_image', new sfWidgetFormInputFileEditable(array(
+    'file_src'      => '/'.basename(sfConfig::get('sf_upload_dir')).'/'.$this->getObject()->menu_image,
+    'edit_mode'     => !$this->isNew(),
+    'is_image'      => true,
+    'with_delete'   => true,
+    'delete_label'  => 'Remove this image',
+  )));
+  $this->setValidator('menu_image_delete', new sfValidatorBoolean());
+} else {
+  $this->setWidget('menu_image', new sfWidgetFormInputFile());
+}
 
-		$this->setValidator('menu_image', new tuiValidatorImage(
-		  array(
-		    'mime_types' => 'web_images',
-		    'path'       => sfConfig::get('sf_upload_dir'),
-		    'required'   => false,
-		    'min_width'  => 100,
-		    'min_height' => 75,
-		    'max_width'  => 100,
-		    'max_height' => 75,
-		  ), 
-		  array('mime_types' => 'Unsupported image type. Please use JPEG, GIF, or PNG only.')
-		));
-
+$this->setValidator('menu_image', new tuiValidatorImage(
+  array(
+    'mime_types' => 'web_images',
+    'path'       => sfConfig::get('sf_upload_dir'),
+    'required'   => false,
+    'min_width'  => 100,
+    'min_height' => 75,
+    'max_width'  => 100,
+    'max_height' => 75,
+  ), 
+  array('mime_types' => 'Unsupported image type. Please use JPEG, GIF, or PNG only.')
+));
+```
 
 Licence
 -------
