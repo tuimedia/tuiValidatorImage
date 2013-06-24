@@ -34,7 +34,7 @@ class tuiValidatorImage extends sfValidatorFile
      // Compare against min/max values if given
     if ($this->getOption('max_width') && $info[0] > $this->getOption('max_width'))
     {
-      throw new sfValidatorError($this, 'max_height', array('value' => (string) $value));
+      throw new sfValidatorError($this, 'max_width', array('value' => (string) $value));
     }
     
     if ($this->getOption('max_height') && $info[1] > $this->getOption('max_height'))
@@ -44,7 +44,7 @@ class tuiValidatorImage extends sfValidatorFile
     
     if ($this->getOption('min_width') && $info[0] < $this->getOption('min_width'))
     {
-      throw new sfValidatorError($this, 'min_height', array('value' => (string) $value));
+      throw new sfValidatorError($this, 'min_width', array('value' => (string) $value));
     }
     
     if ($this->getOption('min_height') && $info[1] < $this->getOption('min_height'))
